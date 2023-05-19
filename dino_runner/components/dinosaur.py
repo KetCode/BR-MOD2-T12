@@ -49,3 +49,22 @@ class Dinosaur:
 
         if self.step_index >= 10:
             self.step_index = 0
+
+    def update(self, user_input):
+        if user_input[pygame.K_UP] and not self.dino_jump:
+            self.dino_jump = True
+            self.dino_run = False
+            self.dino_duck = False
+        elif user_input[pygame.K_DOWN] and not self.dino_jump:
+            self.dino_duck = True
+            self.dino_run = False
+            self.dino_jump = False
+        elif not (self.dino_jump or user_input[pygame.K_DOWN]):
+            self.dino_run = True
+
+        if self.dino_run:
+            self.run()
+        elif self.dino_jump:
+            self.jump()
+        elif self.dino_duck:
+            self.duck()
