@@ -68,3 +68,6 @@ class Dinosaur:
             self.jump()
         elif self.dino_duck:
             self.duck()
+
+    def draw(self, screen):
+        screen.blit(self.image, (self.dino_rect.x, self.dino_rect.y))
