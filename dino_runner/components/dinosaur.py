@@ -27,3 +27,15 @@ class Dinosaur:
 
         if self.step_index >= 10:
             self.step_index = 0
+        
+    def jump(self):
+        self.image = JUMPING
+
+        if self.dino_jump:
+            self.dino_rect.y -= self.jump_vel * 4
+            self.jump_vel -= 0.8
+
+        if self.jump_vel < -JUMP_VEL:
+            self.dino_jump = False
+            self.dino_rect.y = Y_POS
+            self.jump_vel = JUMP_VEL
